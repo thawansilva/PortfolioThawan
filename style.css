@@ -30,6 +30,7 @@ a {
     position: sticky;
     top: 0;
     border-bottom: 2px solid hsl(0, 0%, 93%);
+    z-index: 1;
 }
 
 .nav_list {
@@ -147,6 +148,26 @@ img {
     grid-column: span 6;
 }
 
+.about {
+    background-color: hsl(0, 0%, 93%);
+    border-bottom: 3px solid hsl(202, 53%, 47%);
+}
+
+#aboutme {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1em;
+    padding: 3em 0em;
+    color: hsl(202, 53%, 47%);
+}
+
+#aboutme p {
+    font-size: 1.35rem;
+    width: 70%;
+}
+
 footer {
     background-color: hsl(202, 53%, 47%);
     color: hsl(0, 0%, 93%);
@@ -214,6 +235,20 @@ a:hover {
     transform: translateY(10px);
     transition: .4s;
     text-shadow: 0px 0px 5px hsl(0, 0%, 0%);
+}
+
+[data-anime] {
+    opacity: 0;
+    transition: .3s;
+}
+
+[data-anime="down"] {
+    transform: translate3d(0px, -50px, 0px);
+}
+
+[data-anime].animate {
+    opacity: 1;
+    transform: translate3d(0px, 0px, 0px);
 }
 
 /* Media Query */
