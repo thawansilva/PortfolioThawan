@@ -1,27 +1,35 @@
 "use strict"
-// Animação Scroll suave
-const navItems = document.querySelectorAll('.nav_list a[href^="#"]')
-navItems.forEach(item => {
-    item.addEventListener('click', scroolToElementOnClick)
-})
-//Função de callback do evento click
-function scroolToElementOnClick(event) {
-    event.preventDefault();
-    const section = getScroolPositionTop(event.target)
-    scroolToPosition(section)
+
+class SmothScroll {
+    constructor(links) {
+        this.linkElements = document.querySelectorAll(links);
+        this.addClickEvent();
+    }
+    addClickEvent() {
+        this.linkElements.forEach(link => {
+            link.addEventListener('click', this.handleClick)
+        })
+    }
+    handleClick(event) {
+        event.preventDefault()
+        const hrefSectionTarget = event.target.getAttribute('href')
+        const sectionTarget = document.querySelector(hrefSectionTarget)
+        window.scrollTo({
+            top: sectionTarget.offsetTop - 65,
+            behavior: 'smooth'
+        })
+    }
 }
-// Encontrar posição vertical do alvo
-function getScroolPositionTop(element) {
-    const id = element.getAttribute('href')
-    return document.querySelector(id).offsetTop;
-}
-//Scrool até a section
-function scroolToPosition(y) {
-    window.scroll({
-        top: y - 65,
+const scroll = new SmothScroll("a[href^='#']")
+
+// Botão Home
+const homeButton = document.querySelector('#home');
+homeButton.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
         behavior: 'smooth'
     })
-}
+})
 
 // Animação ao scroll
 
@@ -46,7 +54,7 @@ const target = document.querySelectorAll('[data-anime]');
 const animationClass = 'animate';
 
 function animeScrool() {
-    const windowTop = window.scrollY + (window.innerHeight * .85);
+    const windowTop = window.scrollY + (window.innerHeight * .9);
     target.forEach(element => {
         if (windowTop > element.offsetTop) {
             element.classList.add(animationClass);
