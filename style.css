@@ -28,7 +28,7 @@ a {
   width: 80%;
   margin: 0 auto;
 }
-
+/* Navbar */
 .navbar {
   background-color: var(--primary-color);
   color: var(--light-color);
@@ -44,6 +44,7 @@ a {
   font-size: 1.25rem;
 }
 
+/* Showcase */
 .sec_showcase {
   background-color: var(--primary-color);
 }
@@ -80,51 +81,19 @@ h1 {
   text-align: center;
   color: var(--primary-color);
   background-color: var(--light-color);
-  grid-template-areas:
-    "area1 area1 area1 area1 area1 area1"
-    "area2 area2 area3 area3 area4 area4"
-    "area2 area2 area3 area3 area4 area4"
-    "area5 area5 area6 area6 area7 area7"
-    "area5 area5 area6 area6 area7 area7";
+  grid-template-columns: repeat(6, 1fr);
 }
 
-.item1 {
-  grid-area: area1;
-}
-
-.item2 {
-  grid-area: area2;
-}
-
-.item3 {
-  grid-area: area3;
-}
-
-.item4 {
-  grid-area: area4;
-}
-
-.item5 {
-  grid-area: area5;
-}
-
-.item6 {
-  grid-area: area6;
-}
-
-.item7 {
-  grid-area: area7;
-}
-
-.box_project {
+#projects .box_project {
   grid-column: span 2;
-  grid-row: span 2;
   background-color: var(--primary-color);
   color: var(--light-color);
   border-radius: 10px;
   box-shadow: 0px 0px 10px hsl(0, 0%, 0%);
 }
-
+.box_project img {
+  width: 100%;
+}
 .box_project a {
   display: block;
   padding: 0;
@@ -170,7 +139,7 @@ img {
   font-size: 1.35rem;
   width: 70%;
 }
-
+/* Footer */
 footer {
   background-color: var(--primary-color);
   color: var(--light-color);
@@ -286,67 +255,26 @@ h3 {
   }
 
   #projects {
-    grid-template-areas:
-      "area1 area1 area1 area1"
-      "area2 area2 area3 area3"
-      "area2 area2 area3 area3"
-      "area4 area4 area5 area5"
-      "area4 area4 area5 area5"
-      "area6 area6 area7 area7"
-      "area6 area6 area7 area7";
+    grid-auto-columns: auto;
   }
-
-  .item1 {
-    grid-area: area1;
+  .box_project .project_title {
+    grid-column: auto;
   }
-
-  .item2 {
-    grid-area: area2;
-  }
-
-  .item3 {
-    grid-area: area3;
-  }
-
-  .item4 {
-    grid-area: area4;
-  }
-
-  .item5 {
-    grid-area: area5;
-  }
-
-  .item6 {
-    grid-area: area6;
-  }
-
-  .item7 {
-    grid-area: area7;
+  #projects .box_project {
+    grid-column: span 3;
   }
 }
-
 @media (max-width: 430px) {
   * {
     font-size: 15px;
   }
 
   #projects {
-    grid-template-areas:
-      "area1 area1"
-      "area2 area2"
-      "area2 area2"
-      "area3 area3"
-      "area3 area3"
-      "area4 area4"
-      "area4 area4"
-      "area5 area5"
-      "area5 area5"
-      "area6 area6"
-      "area6 area6"
-      "area7 area7"
-      "area7 area7";
+    grid-column: 1fr;
   }
-
+  #projects .box_project {
+    grid-column: span 6;
+  }
   .social_media p,
   i {
     font-size: 1.5rem;
