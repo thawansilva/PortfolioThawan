@@ -70,3 +70,14 @@ if (target.length) {
         animeScrool();
     }, 20))
 };
+// Animação máquina de escrever
+const titleText = document.querySelector('#main_title')
+const subTitleText = document.querySelector('#main_text')
+function typewriter(element) {
+    const letters = element.innerHTML.split('');
+    subTitleText.innerHTML = ''
+    letters.forEach((letter, i) => {
+        setTimeout(() => subTitleText.innerHTML += letter, 80 * i);
+        })
+}
+typewriter(subTitleText)
