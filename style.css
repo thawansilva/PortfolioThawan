@@ -43,14 +43,18 @@ a {
   justify-content: center;
   font-size: 1.25rem;
 }
-
+.navbar a:hover {
+  text-shadow: 0px 0px 5px hsl(0, 0%, 0%);
+  transform: scale(1.1);
+  transition: 0.4s;
+}
 /* Showcase */
 .sec_showcase {
   background-color: var(--primary-color);
 }
 
 h1 {
-  font-size: 5.5rem;
+  font-size: 5rem;
   color: var(--light-color);
 }
 
@@ -61,11 +65,16 @@ h1 {
   padding: 6em 0em;
 }
 
-.showcase p {
+#main_text {
   font-size: 1.5rem;
   font-style: italic;
   margin-top: 0.5em;
   color: var(--light-color);
+}
+#main_text::after {
+  animation: piscar 0.7s infinite;
+  content: "|";
+  margin-left: 3px;
 }
 
 .img_showcase img {
@@ -73,7 +82,7 @@ h1 {
   width: auto;
   border-radius: 60px;
 }
-
+/* Projects */
 #projects {
   row-gap: 3em;
   display: grid;
@@ -90,6 +99,10 @@ h1 {
   color: var(--light-color);
   border-radius: 10px;
   box-shadow: 0px 0px 10px hsl(0, 0%, 0%);
+}
+#projects .box_project:hover {
+  box-shadow: 0px 0px 25px hsl(0, 0%, 0%);
+  transition: 0.3s;
 }
 .box_project img {
   width: 100%;
@@ -168,6 +181,12 @@ h3 {
   cursor: pointer;
 }
 
+.link_socialmedia:hover {
+  transform: translateY(10px);
+  transition: 0.4s;
+  text-shadow: 0px 0px 5px hsl(0, 0%, 0%);
+}
+
 .social_media {
   display: flex;
   justify-content: center;
@@ -200,30 +219,22 @@ h3 {
 }
 
 /* Animações */
+
 .list_item:hover {
   background-color: var(--primary-color);
   color: var(--primary-color);
   border-radius: 5px;
   cursor: pointer;
 }
-
-.box_project:hover {
-  box-shadow: 0px 0px 25px hsl(0, 0%, 0%);
-  transition: 0.3s;
+@keyframes piscar {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }
-
-.navbar a:hover {
-  text-shadow: 0px 0px 5px hsl(0, 0%, 0%);
-  transform: scale(1.1);
-  transition: 0.4s;
-}
-
-.link_socialmedia:hover {
-  transform: translateY(10px);
-  transition: 0.4s;
-  text-shadow: 0px 0px 5px hsl(0, 0%, 0%);
-}
-
 [data-anime] {
   opacity: 0;
   transition: 0.3s;
