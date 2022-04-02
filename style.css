@@ -60,7 +60,7 @@ h1 {
 
 .showcase {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   padding: 6em 0em;
 }
